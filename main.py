@@ -1,28 +1,16 @@
-from selenium import webdriver
-from bs4 import BeautifulSoup
-import pandas as pd
+from Repository.file_repository import FileRepository
+from Service.website_service import WebsiteService
+from UI.console import Console
 
-driver = webdriver.Firefox()
+def main():
+    website_repository = FileRepository('data.txt')
 
-products=[]
-prices=[]
-ratings=[]
-driver.get("https://www.pcgarage.ro/notebook-laptop/")
+    website_service = WebsiteService(website_repository)
 
-content = driver.page_source
-soup = BeautifulSoup(content)
+    console = Console(website_service)
 
-for div in soup.find_all('div',class_='product_box'):
-    
-    name = div.find('div',class_='product_box_name')
-    price = div.find('div',class_='pb-price')
-    rating = div.find('span',class_='rating_container')
-    products.append(name.text)
-    prices.append(price.text)
-    if(rating):
-        ratings.append(len(list(rating.descendants)))
-    else:
-        ratings.append(0)
+    console.run_menu()
 
-df = pd.DataFrame({'Product Name':products,'Price':prices,'Rating':ratings}) 
-df.to_csv('products.csv', index=False, encoding='utf-8')
+
+main()
+
