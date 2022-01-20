@@ -1,10 +1,19 @@
 
 
 class Website:
-    def __init__(self, url, container_class, classes):
+    def __init__(self, name,url, container_class, classes):
+        self.__name = name
         self.__url = url
         self.__container_class = container_class
         self.__classes = classes
+
+    @property
+    def  name(self):
+        return  self.__name
+
+    @name.setter
+    def name(self,new_name):
+        self.__name = new_name
 
     @property
     def url(self):

@@ -13,10 +13,11 @@ class FileRepository:
                 for line in fp:
 
                     components = line.split(' ')
-                    url = components[0]
-                    container_class = components[1]
-                    classes = components[2::]
-                    website = Website(url, container_class, classes)
+                    name = components[0]
+                    url = components[1]
+                    container_class = components[2]
+                    classes = components[3::]
+                    website = Website(name,url, container_class, classes)
                     self.add(website)
         except:
             self.__storage = {}

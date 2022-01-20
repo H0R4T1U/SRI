@@ -26,14 +26,16 @@ class Console:
 
     def manual_run(self):
         clear_screen()
-        url = input("Enter the url of the site you want to scrap,enter x to quit:")
-        if url.lower() == "x":
+        name = input("Enter the name of the csv file that will be created,enter x to quit:")
+        if name.lower() == "x":
             quit()
+        url = input("Enter the url of the site you want to scrap")
+
         container_class = input("Enter the class of the container you want scraped:")
         classes = input("Enter the class names you want to extract (separated by a coma):").split(",")
-        print(f"you want to get {url} and extract the classes:{classes}")
+        print(f"you want to get {url} and extract the classes:{classes} into the file {name}.csv")
 
-        self.__website_service.add(url, container_class, classes)
+        self.__website_service.add(name,url, container_class, classes)
         self.__website_service.scrap()
 
     def auto_run(self):

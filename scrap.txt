@@ -1,1 +1,2 @@
-https://www.pcgarage.ro/notebook-laptop/ product_box product_box_name pb-price rating_container
+Products https://www.pcgarage.ro/notebook-laptop/ product_box product_box_name pb-price
+Article https://www.hoover.org/ row-1 pane-item-title pane-meta field-authors pane-meta field-date
